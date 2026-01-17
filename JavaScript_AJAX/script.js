@@ -14,16 +14,20 @@ fetch('https://rickandmortyapi.com/api/character')
 
 charLoad.addEventListener('click', () => {
     charData.forEach(char => {      
-            charList.innerHTML += (`<div class="card ${char.id}"><h3>${char.name}</h3><img src=${char.image}>`);
+            charList.innerHTML += (`<div class="card" id="${char.id}"><h3>${char.name}</h3><img src=${char.image}>`);
         });
+
+    let focusChar = document.querySelectorAll('.card');
+    
+    focusChar.forEach(card => {
+            card.addEventListener('click', () => {
+                for (let i = 0; i < focusChar.length; i++) {
+                    if (focusChar.card[i] == charData[i].id) {
+                        let position = charData[i].id;
+                        console.log("click" + position);
+                    }
+                }
+            })
+    });
 });
-
-let focusChar = document.getElementById('card');
-
-focusChar.addEventListener('click', () => {
-    charData.forEach(char => {      
-            
-        });
-});
-
 
