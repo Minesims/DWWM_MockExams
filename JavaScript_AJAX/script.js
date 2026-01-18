@@ -12,6 +12,10 @@ fetch('https://rickandmortyapi.com/api/character')
     return error;
 })
 
+function showChar() {
+
+}
+
 charLoad.addEventListener('click', () => {
     charData.forEach(char => {      
             charList.innerHTML += (`<div class="card" id="${char.id}"><h3>${char.name}</h3><img src=${char.image}>`);
@@ -21,13 +25,9 @@ charLoad.addEventListener('click', () => {
     
     focusChar.forEach(card => {
             card.addEventListener('click', () => {
-                for (let i = 0; i < focusChar.length; i++) {
-                    if (focusChar.card[i] == charData[i].id) {
-                        let position = charData[i].id;
-                        console.log("click" + position);
-                    }
-                }
-            })
+                focusChar.forEach(card => card.classList.remove('active'));
+                card.classList.add('active');
+            });
     });
 });
 
