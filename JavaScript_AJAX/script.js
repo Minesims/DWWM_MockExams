@@ -12,21 +12,29 @@ fetch('https://rickandmortyapi.com/api/character')
     return error;
 })
 
-function showChar() {
-
-}
-
 charLoad.addEventListener('click', () => {
     charData.forEach(char => {      
             charList.innerHTML += (`<div class="card" id="${char.id}"><h3>${char.name}</h3><img src=${char.image}>`);
         });
 
-    let focusChar = document.querySelectorAll('.card');
+    let cards = document.querySelectorAll('.card');
     
-    focusChar.forEach(card => {
+    cards.forEach(card => {
             card.addEventListener('click', () => {
-                focusChar.forEach(card => card.classList.remove('active'));
+                cards.forEach(card => card.classList.remove('active'));
                 card.classList.add('active');
+                
+                let focusChar = document.getElementById('selectedCharacter');
+                let charDetails = document.getElementById('details');
+                
+                charData.forEach(char => {
+                    if (char.id == card.id) {
+                        focusChar.innerHTML = (`<div class="details"><img src=${char.image}><h4>Nom : ${char.name}</h4><p>Espèce : ${char.species}</p><p>Sexe : ${char.gender}</p><p>Statut : ${char.status}</p></div>`);
+
+                        charDetails.innerHTML = (``)
+                    }
+                })
+
             });
     });
 });
