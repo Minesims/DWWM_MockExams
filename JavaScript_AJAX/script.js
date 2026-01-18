@@ -29,12 +29,11 @@ charLoad.addEventListener('click', () => {
                 
                 charData.forEach(char => {
                     if (char.id == card.id) {
-                        focusChar.innerHTML = (`<div class="details"><img src=${char.image}><h4>Nom : ${char.name}</h4><p>Espèce : ${char.species}</p><p>Sexe : ${char.gender}</p><p>Statut : ${char.status}</p></div>`);
+                        focusChar.innerHTML = (`<div class="details"><img src=${char.image}><h4>${char.name}</h4></div>`);
 
-                        charDetails.innerHTML = (``)
+                        charDetails.innerHTML = (`<div><p>Espèce : ${char.species}</p><p>Sexe : ${char.gender}</p><p>Statut : ${char.status}</p></div>`)
                     }
                 })
-
             });
     });
 });
